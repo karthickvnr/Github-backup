@@ -94,13 +94,13 @@ public class CartDAOImpl /*implements CartDAO*/
 		
 	}
 	
-/*	@Transactional
-	@Override
+	@Transactional
+	
 	public boolean addCart(Cart cart) 
 	{
 		try
 		{
-			sessionFactory.getCurrentSession().save(cart);
+			sessionFac.getCurrentSession().save(cart);
 			return true;
 		}
 		catch(Exception e)
@@ -109,8 +109,9 @@ public class CartDAOImpl /*implements CartDAO*/
 			return false;
 		}
 	}
+}
 
-	@Transactional
+	/*@Transactional
 	@Override
 	public boolean updateCart(Cart cart) 
 	{
@@ -160,6 +161,6 @@ public class CartDAOImpl /*implements CartDAO*/
 		List<Cart> listCartItem=query.list();
 		session.close();
 		return listCartItem;
-	}*/
+	}
 
-}
+}*/

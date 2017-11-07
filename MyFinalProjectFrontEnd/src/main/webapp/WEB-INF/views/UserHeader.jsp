@@ -44,6 +44,8 @@
           <li><a href="userHome">Spices</a></li>          
         </ul>
       </li>
+      
+      <li><a href="${pageContext.request.contextPath}/goToCart">Cart</a></li>
  
 </ul> 
     <ul class="nav navbar-nav navbar-right">

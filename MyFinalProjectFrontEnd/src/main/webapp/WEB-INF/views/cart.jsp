@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>My Store</title>
+<title>My Online Provisional Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf=8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
@@ -44,7 +44,7 @@ tr:hover{background-color:#f5f5f5}
 <br>
 <br>
 <div class="container">
-<h4><img alt="" src="${pageContext.request.contextPath }/resources/Cart.jsp">&nbsp; My Cart</h4>
+<h4><img alt="" src="${pageContext.request.contextPath }/cart.JPG">&nbsp; My Cart</h4>
 <table id="cart" class="table table-hover table-condensed">
 <thead>
 <tr>
@@ -60,14 +60,16 @@ tr:hover{background-color:#f5f5f5}
 <tbody>
 <c:if test="${empty cartInfo }">
 <tr><td colspan="7" align="center">No Record Exists</td></tr>
-
 </c:if>
+
 <c:forEach var="v" varStatus="st" items="${cartInfo }">
 <tr>
 <td><c:out value="${c.cartProductName }"></c:out></td>
 <td><c:out value="${c.cartQnty }"></c:out></td>
-<td><c:out value="${c.cartPrice }"></c:out></td><%-- 
+<td><c:out value="${c.cartPrice }"></c:out></td>
+<%-- 
 <td><img src="${pageContext.request.contextPath }/resources/<c:out value='${c.cartImg }'></c:out>"/></td> --%>
+
 <td><c:out value="${c.cartQnty * c.cartPrice }"></c:out></td>
 <td><a href="${pageContext.request.contextPath }/deletePCart/${c.cartID}" class="btn btn-lg btn-danger"><i class="fa fa-trash="></i> </a><c:out value="${c.cartProductName }"></c:out></td>
 <c:set var="gtot" value="${gtot + c.cartPrice * c.cartQnty }"></c:set>

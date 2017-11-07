@@ -22,7 +22,7 @@ th, td {
 tr:hover{background-color:#f5f5f5}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>My Store</title>
+<title>My Online Provisional Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf=8">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" >
@@ -32,7 +32,7 @@ tr:hover{background-color:#f5f5f5}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="UserHeader.jsp"></jsp:include>
+<jsp:include page="header.jsp"></jsp:include>
 Welcome : ${sessionScope.username}
 
 
@@ -51,7 +51,7 @@ Welcome : ${sessionScope.username}
 		<td>${product.catName}</td>
 		<td>${product.stock}</td>
 		<td>
-			<a href="productDesc/${product.productId}">
+			<a href="productDetails/${product.productId}">
 			<img src="<c:url value="resources/images/${product.productId}.jpg"/>" width="150px" height="150px">
 			</a>
 		</td>

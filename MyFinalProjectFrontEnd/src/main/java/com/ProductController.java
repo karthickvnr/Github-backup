@@ -245,6 +245,8 @@ public class ProductController {
 		return "IndexProduct";
 	}
 	
+	
+	
 	/*@RequestMapping(value="fiction")	
 	public String showFiction(Model m)
 	{
@@ -257,12 +259,12 @@ public class ProductController {
 		return "Fiction";
 	}*/
 	
-	@RequestMapping(value="productDesc/{productId}")
-	public String showProductDesc(@PathVariable("productId")int productId,Model m)
+	@RequestMapping(value="productDetails/{productId}")
+	public String showProductDetails(@PathVariable("productId")int productId,Model m)
 	{
 		Product product = productDAO.getProduct(productId);
 		m.addAttribute("product",product);
-		return "ProductDesc";
+		return "ProductDetails";
 	}
 	@RequestMapping("productCustList")
 	public ModelAndView productcustList(@RequestParam("catId") int catId,Model m)

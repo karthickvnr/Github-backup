@@ -152,12 +152,10 @@ public class CartController {
 		mv.addObject("product",p);
 		mv.setViewName("prodDetails");
 		return mv;
-	}
+	}	
 	
-	
-	
-	@RequestMapping(value="addToCart", method=RequestMethod.POST)
-	public ModelAndView addTocart(HttpServletRequest req)
+	@RequestMapping(value="/addToCart", method=RequestMethod.POST)
+	public ModelAndView addToCart(HttpServletRequest req)
 	{
 		ModelAndView mv = new ModelAndView();
 		Principal principal = req.getUserPrincipal();
@@ -257,7 +255,7 @@ public class CartController {
 		return mv;
 	}
 
-	@RequestMapping(value="goToCart",method=RequestMethod.GET)
+	@RequestMapping(value="/goToCart",method=RequestMethod.GET)
 	public ModelAndView goToCart(HttpServletRequest request)
 	{
 		ModelAndView mv = new ModelAndView();

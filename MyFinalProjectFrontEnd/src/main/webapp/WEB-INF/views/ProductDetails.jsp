@@ -9,43 +9,47 @@
 <body>
 
 <jsp:include page="header.jsp"></jsp:include>
-<table>
+<div class="container">
+<div class="row">
+<div class="col-xs-4 item-photo">
+</div>
 
-	<tr>
-		<td rowspan="5">
-			<img src="<c:url value="/resources/images/${product.productId}.jpg"/>"  width="500px" height="500px" />
-		</td>
-		<td>&nbsp;</td>
-	</tr>
+<div class="col-xs-5" style="border:0px solid gray">
 
-	<tr>
-		<td>Product Name :${product.productName}</td>
-	</tr>
-	<tr>
-		<td>Product Desc :${product.productDesc}</td>
-	</tr>
-		<tr>
-		<td>Product Price :${product.price}</td>
-	</tr>
-		
-
-</table>
-
+<h3>${product.productName}</h3>
+<h4>${product.productDesc}</h4>
+<h4>${product.price} Rs.</h4>
+<%-- <h5>${product.supplier.supplierName }</h5> --%>
 <div class="section" style="padding-bottom:20px;">
+
 <form action="${pageContext.request.contextPath}/addToCart" method="post">
-	<input type="hidden" value="${product.productId }" name="pId">
-	<input type="hidden" value="${product.price }" name="pPrice">
-	<input type="hidden" value="${product.productName }" name="productName">
-<%-- 	<input type="hidden" value="${product.pimage }" name="imgname">
- --%>	
+	<input type="hidden" value="${product.productId}" name="pId">
+	<input type="hidden" value="${product.price}" name="pPrice">
+	<input type="hidden" value="${product.productName}" name="productName">
+	<input type="hidden" value="${product.pimage}" name="imgname">
+	
 	<input type="number" class="form-control" name="quantity" required>
 	
 	<input class="btn btn-primary btn-lg" type="submit" value="Add To Cart">
-	
-	
 
+</div>
+</div>
+<div class="col-xs-9">
+<ul class="menu-items">
+<li class="active">Details of product</li>
+
+
+
+
+</ul>
+
+
+
+</div>
 </form>
 </div>
 
 </body>
 </html>
+
+</div>

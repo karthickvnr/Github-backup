@@ -23,7 +23,7 @@ import com.model.User;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.niit")
+@ComponentScan("com")
 public class DBConfig 
 {
 	
@@ -33,9 +33,9 @@ public class DBConfig
 	{
 		DriverManagerDataSource driverMgrDataSource=new DriverManagerDataSource();
 		driverMgrDataSource.setDriverClassName("org.h2.Driver");
-		driverMgrDataSource.setUrl("jdbc:h2:tcp://localhost/~/Mystore");
-		driverMgrDataSource.setUsername("sai");
-		driverMgrDataSource.setPassword("sai");
+		driverMgrDataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		driverMgrDataSource.setUsername("sa");
+		driverMgrDataSource.setPassword("");
 		System.out.println("started");
 		return driverMgrDataSource;
 	}
