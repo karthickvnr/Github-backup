@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Signup Form</title>
-
+<script src="http://code.jquery.com/jquery-1.10.2.js"
+	type="text/javascript"></script>
 <style>
 
 body, html
@@ -14,18 +15,13 @@ body, html
     height: 100%;
     margin: 0;
 }
-
-
 </style>
 
 </head>
 
 <body>
 
-
-
 <jsp:include page="header.jsp"></jsp:include>
-
 
 <div class="container">
 <!-- <div class="jumbotron"> -->
@@ -34,7 +30,7 @@ body, html
 <div class="row">
 
 
-<form:form action="AddUser" modelAttribute="user"> 
+<form:form action="AddUser" modelAttribute="user" name="myform"> 
 <div class="col-lg-8">
 
 	<div class="form-group">
@@ -47,8 +43,7 @@ body, html
 	<div class="form-group">
 	<div style="margin-bottom: 25px" class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>    
-    <input id="userEmail" type="text" class="form-control" name="userEmail" value="" placeholder="Please enter your email">  
-    <form:errors path="email" cssClass="error"/>                                    
+    <input id="userEmail" type="text" class="form-control" name="userEmail" value="" placeholder="Please enter your email">                                        
     </div>
     </div>
 	
@@ -75,12 +70,30 @@ body, html
 		
 	<br>
 		<center>
-	<button type="submit" class="btn btn-lg btn-info">Submit</button>
+	<button type="submit" class="btn btn-lg btn-info" onclick="return phonenumber();">Submit</button>
 	<button type="reset"  class="btn btn-lg btn-info">Cancel</button>
 	</center>	
 		
 </div>
 
+<script type="text/javascript">
+
+function  phonenumber()
+{
+	var inputtxt = $('#userPhone').val();
+	var value = Number(inputtxt);
+	var returnCode = false;
+	if(!isNaN(value))
+		{
+returnCode = true;
+		}
+	else
+		{
+		alert("Invalid Phone Number");
+		}
+	return returnCode;
+}
+</script>
 
 </form:form>
 

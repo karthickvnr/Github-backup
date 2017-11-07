@@ -51,7 +51,7 @@ tr:hover{background-color:#f5f5f5}
 	<tr bgcolor="cyan">
 		<td>${product.productId}</td>
 		<td>${product.productName}</td>
-		<td>${product.productDesc}</td>
+		<td>${product.productDesc1}</td>
 		<td>${product.stock}</td>
 		<td>${product.price}</td>
 		<td>${product.catName}</td>

@@ -245,7 +245,7 @@ public class ProductController {
 		return "IndexProduct";
 	}
 	
-	@RequestMapping(value="fiction")	
+	/*@RequestMapping(value="fiction")	
 	public String showFiction(Model m)
 	{
 		Product product = new Product();
@@ -255,7 +255,7 @@ public class ProductController {
 		m.addAttribute("categoryList",this.getCatgories());
 		m.addAttribute("supplierList", this.getSuppliers());
 		return "Fiction";
-	}
+	}*/
 	
 	@RequestMapping(value="productDesc/{productId}")
 	public String showProductDesc(@PathVariable("productId")int productId,Model m)
