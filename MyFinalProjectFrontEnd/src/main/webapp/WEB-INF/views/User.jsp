@@ -36,21 +36,21 @@ body, html
 	<div class="form-group">
 	<div style="margin-bottom: 25px" class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>    
-    <input id="login-userName" type="text" class="form-control" name="userName" value="" placeholder="username or email">                                        
+    <input id="login-userName" type="text" class="form-control" name="userName" value="" placeholder="username or email"required>                                        
     </div>
-    </div>
+    </div>    
 	
 	<div class="form-group">
 	<div style="margin-bottom: 25px" class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>    
-    <input id="userEmail" type="text" class="form-control" name="userEmail" value="" placeholder="Please enter your email">                                        
+    <input id="userEmail" type="text" class="form-control" name="userEmail" value="" placeholder="Please enter your email"required>                                        
     </div>
     </div>
 	
 	<div class="form-group">
 	<div style="margin-bottom: 25px" class="input-group">
     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>    
-    <input id="userPassword" type="password" class="form-control" name="userPassword" value="" placeholder="Please type the password">                                        
+    <input id="userPassword" type="password" class="form-control" name="userPassword" value="" placeholder="Please type the password"required>                                        
     </div>
     </div>
 	
@@ -70,13 +70,23 @@ body, html
 		
 	<br>
 		<center>
-	<button type="submit" class="btn btn-lg btn-info" onclick="return phonenumber();">Submit</button>
+	<button type="submit" class="btn btn-lg btn-info" onclick="phonenumber();">Submit</button>
 	<button type="reset"  class="btn btn-lg btn-info">Cancel</button>
 	</center>	
 		
 </div>
 
 <script type="text/javascript">
+
+/* function userName()
+{
+var x = document.forms["myForm"]["fname"].value;
+if (x == "")
+{
+    alert("Name must be filled out");
+    return false;
+}
+} */
 
 function  phonenumber()
 {
@@ -93,6 +103,8 @@ returnCode = true;
 		}
 	return returnCode;
 }
+
+ 
 </script>
 
 </form:form>

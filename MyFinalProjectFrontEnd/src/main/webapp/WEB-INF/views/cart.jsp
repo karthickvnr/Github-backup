@@ -44,7 +44,7 @@ tr:hover{background-color:#f5f5f5}
 <br>
 <br>
 <div class="container">
-<h4><img alt="" src="${pageContext.request.contextPath }/cart.JPG">&nbsp; My Cart</h4>
+<h4><img alt="" src="${pageContext.request.contextPath}/resources/cart.png">&nbsp; My Cart</h4>
 <table id="cart" class="table table-hover table-condensed">
 <thead>
 <tr>
@@ -58,31 +58,31 @@ tr:hover{background-color:#f5f5f5}
 </thead>
 
 <tbody>
-<c:if test="${empty cartInfo }">
+<c:if test="${empty cartInfo}">
 <tr><td colspan="7" align="center">No Record Exists</td></tr>
 </c:if>
 
-<c:forEach var="v" varStatus="st" items="${cartInfo }">
+<c:forEach var="v" varStatus="st" items="${cartInfo}">
 <tr>
-<td><c:out value="${c.cartProductName }"></c:out></td>
-<td><c:out value="${c.cartQnty }"></c:out></td>
-<td><c:out value="${c.cartPrice }"></c:out></td>
-<%-- 
-<td><img src="${pageContext.request.contextPath }/resources/<c:out value='${c.cartImg }'></c:out>"/></td> --%>
+<td><c:out value="${c.cartProdName}"></c:out></td>
+<td><c:out value="${c.cartQnty}"></c:out></td>
+<td><c:out value="${c.cartPrice}"></c:out></td>
 
-<td><c:out value="${c.cartQnty * c.cartPrice }"></c:out></td>
-<td><a href="${pageContext.request.contextPath }/deletePCart/${c.cartID}" class="btn btn-lg btn-danger"><i class="fa fa-trash="></i> </a><c:out value="${c.cartProductName }"></c:out></td>
-<c:set var="gtot" value="${gtot + c.cartPrice * c.cartQnty }"></c:set>
+<td><img src="${pageContext.request.contextPath}/resources/views/<c:out value="${c.cartImg}"></c:out>"/></td>
+
+<td><c:out value="${c.cartQnty * c.cartPrice}"></c:out></td>
+<td><a href="${pageContext.request.contextPath}/deletePCart/${c.cartID}" class="btn btn-lg btn-danger"><i class="fa fa-trash="></i> </a><c:out value="${c.cartProdName}"></c:out></td>
+<c:set var="gtot" value="${gtot + c.cartPrice * c.cartQnty}"></c:set>
 </tr>
 </c:forEach>
 <tr>
-<td><span class="col-lg-7" align="right"><label>Grant Total</label><c:out value="${gtot }"></c:out></span></td>
+<td><span class="col-lg-7" align="right"><label>Grant Total</label><c:out value="${gtot}"></c:out></span></td>
 </tr>
 </tbody>
 <tr>
 <td><a href="userHome" class="btn btn-warning">Continue Shopping</a></td>
 
-<c:if test="${not empty cartInfo }">
+<c:if test="${not empty cartInfo}">
 <td><a href="/checkout" class="btn btn-success">Checkout</a></td>
 </c:if>
 </tr>

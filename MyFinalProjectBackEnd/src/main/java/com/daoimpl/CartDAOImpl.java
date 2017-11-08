@@ -62,8 +62,8 @@ public class CartDAOImpl /*implements CartDAO*/
 		{
 			session.beginTransaction();
 			cr=(Cart)session
-					.createQuery("from Cart where userEmail= :email and cartProductID= id")
-					.setString("email", UserEmail).setInteger("id",cartID).uniqueResult();
+					.createQuery("from Cart where userEmail= :email and cartProductID= pId")
+					.setString("email", UserEmail).setInteger("pId",cartID).uniqueResult();
 			session.getTransaction().commit();
 			return cr;
 			

@@ -17,8 +17,9 @@
 			</property>
 			
 			<property name="suffix">
-					<value>.jsp</value>
-			</property>
+					<value>.jsp</value>					
+			</property>			
+			
    </bean>
    
    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

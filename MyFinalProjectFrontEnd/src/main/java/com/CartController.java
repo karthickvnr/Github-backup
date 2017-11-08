@@ -162,11 +162,11 @@ public class CartController {
 		String userEmail=principal.getName();
 		try
 		{
-			int pid=Integer.parseInt(req.getParameter("pid"));
-			String productName = req.getParameter("productName");
+			int pid=Integer.parseInt(req.getParameter("pId"));
 			int price=Integer.parseInt(req.getParameter("pPrice"));
-			int quantity = Integer.parseInt(req.getParameter("pStock"));
-			//String imgName=req.getParameter("imgname");
+			String productName = req.getParameter("productName");
+			String imgName=req.getParameter("imgname");
+			int quantity = Integer.parseInt(req.getParameter("pStock"));			
 			Cart cartexit = cartDaoImpl.getCartByID(pid,userEmail);
 			
 			if(cartexit == null)
@@ -176,7 +176,7 @@ public class CartController {
 				cm.setCartPrice(price);
 				cm.setCartproductId(pid);
 				cm.setCartQnty(quantity);
-			//	cm.setCartImg(imgName);
+				cm.setCartImg(imgName);
 				User u = userDAO.getUser(userEmail);
 				cm.setCartUserDetails(u);
 				cartDaoImpl.insert(cm);
@@ -185,10 +185,9 @@ public class CartController {
 			{
 				Cart cm = new Cart();
 				cm.setCartId(cartexit.getCartId());
-				cm.setCartPrice(price);
-				
+				cm.setCartPrice(price);				
 				cm.setCartproductId(pid);
-				//cm.setCartImg(imgName);
+				cm.setCartImg(imgName);
 				cm.setCartProdName(productName);
 				cm.setCartQnty(cartexit.getCartQnty()+quantity);
 				User u = userDAO.getUser(userEmail);
@@ -208,6 +207,8 @@ public class CartController {
 		
 		
 	}
+	
+	
 	
 	@RequestMapping(value="checkout",method=RequestMethod.GET)
 	public ModelAndView chkproc(HttpServlet re)

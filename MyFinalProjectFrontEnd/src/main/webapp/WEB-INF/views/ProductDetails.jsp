@@ -8,10 +8,11 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="UserHeader.jsp"></jsp:include>
 <div class="container">
 <div class="row">
 <div class="col-xs-4 item-photo">
+<img src="<c:url value="/resources/images/${product.productId}.jpg"/>"  width="300px" height="300px" />
 </div>
 
 <div class="col-xs-5" style="border:0px solid gray">
@@ -27,6 +28,7 @@
 	<input type="hidden" value="${product.price}" name="pPrice">
 	<input type="hidden" value="${product.productName}" name="productName">
 	<input type="hidden" value="${product.pimage}" name="imgname">
+	<input type="hidden" value="${product.stock}" name="pStock">
 	
 	<input type="number" class="form-control" name="quantity" required>
 	

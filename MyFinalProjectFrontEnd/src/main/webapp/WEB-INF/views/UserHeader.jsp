@@ -35,11 +35,11 @@
 	
 <ul class="nav navbar-nav">
 	
- <li><a href="index.jsp">Home</a></li>
+ <li><a href="/WEB-INF/views/ClientHome.jsp">Home</a></li>
  
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="userHome">Soaps & Shampoos</a></li>
+          <li><a href="indexProduct">Soaps & Shampoos</a></li>
           <li><a href="userHome">Detergents</a></li>
           <li><a href="userHome">Spices</a></li>          
         </ul>
