@@ -54,6 +54,7 @@
 <span class="icon bar"></span>
 <span class="icon bar"></span>
 <span class="icon bar"></span>
+<span class="icon bar"></span>
 </button>
 </ul>
 </div>
@@ -69,17 +70,17 @@
  
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="indexProduct">Soaps & Shampoos</a></li>
-          <li><a href="userHome">Detergents</a></li>
-          <li><a href="userHome">Spices</a></li>          
+          <li><a href="indexProduct">Soaps</a></li>
+          <li><a href="indexProduct">Shampoos</a></li>
+          <li><a href="indexProduct">Detergents</a></li>
+          <li><a href="indexProduct">Spices</a></li>          
         </ul>
       </li>    
       
-    </ul>
+    </ul>    
     
-    
-    
-    <ul class="nav navbar-nav navbar-right">      
+    <ul class="nav navbar-nav navbar-right">   
+     
       <li><a href="contactus"><span class="glyphicon glyphicon-phone-alt"></span> Contact Us</a></li>
       <li><a href="user"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

@@ -210,7 +210,7 @@ public class CartController {
 	
 	
 	
-	@RequestMapping(value="checkout",method=RequestMethod.GET)
+	@RequestMapping(value="/checkout",method=RequestMethod.GET)
 	public ModelAndView chkproc(HttpServlet re)
 	{
 		ModelAndView mv = new ModelAndView();

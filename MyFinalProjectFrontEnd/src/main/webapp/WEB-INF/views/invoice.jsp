@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<jsp:include page="UserHome.jsp"></jsp:include>
+<jsp:include page="UserHeader.jsp"></jsp:include>
 
 <div class="container">
 	<form action="/ack" class="form-horizontal">

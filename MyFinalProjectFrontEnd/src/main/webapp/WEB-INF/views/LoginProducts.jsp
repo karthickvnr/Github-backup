@@ -1,4 +1,5 @@
 
+
 <%-- <table cellspacing="2" align="center" >
 <tr bgcolor="gray">
 	<td>Product Name</td>
@@ -20,6 +21,7 @@
 		</td>
 	</tr>
 </c:forEach>
+
 </table> --%>
 
 

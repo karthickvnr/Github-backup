@@ -236,13 +236,29 @@ public class ProductController {
 		return "UserHome";
 	}	
 	
-	
+		
 	@RequestMapping(value="indexProduct")	
 	public String showIndexProduct(Model m)
 	{
 		List<Product> listProducts=productDAO.retrieveProduct();
 		m.addAttribute("productList",listProducts);
 		return "IndexProduct";
+	}
+	
+	@RequestMapping(value="userProduct")	
+	public String showUserProduct(Model m)
+	{
+		List<Product> listProducts=productDAO.retrieveProduct();
+		m.addAttribute("productList",listProducts);
+		return "UserProduct";
+	}
+	
+	@RequestMapping(value="userProduct1")	
+	public String showUserProduct1(Model m)
+	{
+		List<Product> listProducts=productDAO.retrieveProduct();
+		m.addAttribute("productList",listProducts);
+		return "UserProduct1";
 	}
 	
 	

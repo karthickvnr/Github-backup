@@ -15,23 +15,47 @@ body, html
     height: 100%;
     margin: 0;
 }
+
+.bg {
+    
+    background-image: url("resources/Signup BG_5.jpg");    
+    height: 100%;     
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron
+{
+width: 600px;
+height: 500px;
+background-color: #191919 !important;
+padding-top: 10%;
+padding-bottom: 10%;
+padding-left: 10%;
+padding-right: 10%;
+}
+
+
+
 </style>
 
 </head>
 
 <body>
-
+<div class="bg">
 <jsp:include page="header.jsp"></jsp:include>
-
+<br>
 <div class="container">
-<!-- <div class="jumbotron"> -->
-<h2>Registration Page</h2>
-<div class="col-lg-12">
+
+<div class="jumbotron">
+<h2><font color="white">Registration Page</font></h2>
+<!-- <div class="col-lg-12"> -->
 <div class="row">
 
 
 <form:form action="AddUser" modelAttribute="user" name="myform"> 
-<div class="col-lg-8">
+<div class="col-lg-12">
 
 	<div class="form-group">
 	<div style="margin-bottom: 25px" class="input-group">
@@ -68,11 +92,10 @@ body, html
     </div>
     </div>
 		
-	<br>
-		<center>
-	<button type="submit" class="btn btn-lg btn-info" onclick="phonenumber();">Submit</button>
-	<button type="reset"  class="btn btn-lg btn-info">Cancel</button>
-	</center>	
+	<button type="submit" class="btn btn-lg btn" onclick="return fn_PhoneNumberValidation();">Submit</button>
+	
+	<button type="reset"  class="btn btn-lg btn">Cancel</button>
+	
 		
 </div>
 
@@ -88,12 +111,13 @@ if (x == "")
 }
 } */
 
-function  phonenumber()
+function  fn_PhoneNumberValidation()
 {
-	var inputtxt = $('#userPhone').val();
-	var value = Number(inputtxt);
+	var indianPhoneNumberFormat = /^\+91[7-9]{1}[0-9]{9}$/;
+	var phoneNumber = $('#userPhone').val();
+	
 	var returnCode = false;
-	if(!isNaN(value))
+	if(phoneNumber.match(indianPhoneNumberFormat)!=null)
 		{
 returnCode = true;
 		}
@@ -111,9 +135,12 @@ returnCode = true;
 
 </div>
 </div>
-</div>
 
 </div>
+
+
+</div>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

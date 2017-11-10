@@ -7,30 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Index Page</title>
 
-<style>
 
-body, html
-{
-    height: 88%;
-    margin: 0;
-}
-
-.bg {
-    
-    background-image: url("resources/Index BG.jpg");    
-    height: 100%;     
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-</style>
 </head>
 <body>
-<div class="bg">
+
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>  
 <jsp:include page="/WEB-INF/views/Carousel.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
-</div>
+
 </body>
 </html>

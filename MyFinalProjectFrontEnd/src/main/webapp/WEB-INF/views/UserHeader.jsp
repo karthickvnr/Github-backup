@@ -35,21 +35,22 @@
 	
 <ul class="nav navbar-nav">
 	
- <li><a href="/WEB-INF/views/ClientHome.jsp">Home</a></li>
+ <li><a href="ClientHome.jsp">Home</a></li>
  
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Category<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="indexProduct">Soaps & Shampoos</a></li>
-          <li><a href="userHome">Detergents</a></li>
-          <li><a href="userHome">Spices</a></li>          
+          <li><a href="userProduct1">Soaps</a></li>
+          <li><a href="userProduct">Shampoos</a></li>
+          <li><a href="userProduct">Detergents</a></li>
+          <li><a href="userProduct">Spices</a></li>          
         </ul>
-      </li>
+      </li>  
       
       <li><a href="${pageContext.request.contextPath}/goToCart">Cart</a></li>
  
 </ul> 
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="#"><span class="glyphicon glyphicon-user"></span>${sessionScope.username}</a></li>
+     <li><a href="account"><span class="glyphicon glyphicon-user"></span>${sessionScope.username}</a></li>
       <li><a href="index.jsp"><span class="glyphicon glyphicon-log-in"></span> SignOut</a></li>
     </ul>
 

@@ -30,7 +30,7 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="/clienthome")
-	public String showClienthomePage()
+	public String showClientHomePage()
 	{
 		return "ClientHome";
 	}

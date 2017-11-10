@@ -70,7 +70,7 @@ tr:hover{background-color:#f5f5f5}
 
 <td><img src="${pageContext.request.contextPath}/resources/views/<c:out value="${c.cartImg}"></c:out>"/></td>
 
-<td><c:out value="${c.cartQnty * c.cartPrice}"></c:out></td>
+<td><c:out value="${c.cartQnty*c.cartPrice}"></c:out></td>
 <td><a href="${pageContext.request.contextPath}/deletePCart/${c.cartID}" class="btn btn-lg btn-danger"><i class="fa fa-trash="></i> </a><c:out value="${c.cartProdName}"></c:out></td>
 <c:set var="gtot" value="${gtot + c.cartPrice * c.cartQnty}"></c:set>
 </tr>
@@ -83,7 +83,7 @@ tr:hover{background-color:#f5f5f5}
 <td><a href="userHome" class="btn btn-warning">Continue Shopping</a></td>
 
 <c:if test="${not empty cartInfo}">
-<td><a href="/checkout" class="btn btn-success">Checkout</a></td>
+<td><a href="${pageContext.request.contextPath}/checkout" class="btn btn-success">Checkout</a></td>
 </c:if>
 </tr>
 </table>

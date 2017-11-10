@@ -34,6 +34,17 @@ body, html
     background-size: cover;
 }
 
+.jumbotron
+{
+width: 500px;
+height: 350px;
+background-color: #002E58 !important;
+padding-top: 10%;
+padding-bottom: 10%;
+padding-left: 10%;
+padding-right: 10%;
+}
+
 </style>
 
 
@@ -41,11 +52,11 @@ body, html
 <body>
 <div class="bg">
 <jsp:include page="header.jsp"></jsp:include>
-
-
+<br>
 <div class="container">
-
+<div class="jumbotron">
 <h2><font color="white">Login Page</font></h2>
+<div class="row">
   
   <form action="perform_login" method="post">  
    
@@ -63,18 +74,17 @@ body, html
       <input type="password" class="form-control" placeholder="Enter password" name="password" size="35" required>
     </div>
     </div>
-    
        
-    <center>
-    <button type="button" class="btn btn-lg btn-info"><a href="user">Create Account</button></a>
-	<button type="submit" class="btn btn-lg btn-info">Submit</button>	
-	
-	</center>	    
     
+    <button type="button" class="btn btn-lg btn"><a href="user">Create Account</a></button>
+	<button type="submit" class="btn btn-lg btn">Submit</button>	    
     
   </form>
+  </div>
+  </div>
 </div>
 </div>
+<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

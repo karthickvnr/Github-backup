@@ -37,13 +37,8 @@ body, html
 </head>
 
 <body>
-
 <div class="bg">
-
 <jsp:include page="header.jsp"></jsp:include>
-
-
-
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-lg-12">

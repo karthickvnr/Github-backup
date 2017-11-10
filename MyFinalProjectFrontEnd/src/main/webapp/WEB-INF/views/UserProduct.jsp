@@ -32,7 +32,9 @@ tr:hover{background-color:#f5f5f5}
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="UserHeader.jsp"></jsp:include>
+Welcome : ${sessionScope.username}
+
 
 <table cellspacing="2" align="center" >
 <tr bgcolor="gray">
