@@ -6,20 +6,24 @@
 <html>
 <head>
 <style>
-table, td, th {    
-    border: 1px solid #ddd;
-    text-align: left;
-}
+    	.row{
+		    margin-top:40px;
+		    padding: 0 15px;
+		}
+		.clickable{
+		    cursor: pointer;   
+		}
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    padding: 15px;
-}
-tr:hover{background-color:#f5f5f5}
+		.panel-heading div {
+			margin-top: -18px;
+			font-size: 25px;
+		}
+		.panel-heading div span{
+			margin-left:5px;
+		}
+		.panel-body{
+			display: none;
+		}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>My Online Provisional Store</title>
@@ -31,31 +35,112 @@ tr:hover{background-color:#f5f5f5}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<script type="text/javascript">
+
+/* (function(){
+    'use strict';
+	var $ = jQuery;
+	$.fn.extend({
+		filterTable: function(){
+			return this.each(function(){
+				$(this).on('keyup', function(e){
+					$('.filterTable_no_results').remove();
+					var $this = $(this), 
+                        search = $this.val().toLowerCase(), 
+                        target = $this.attr('data-filters'), 
+                        $target = $(target), 
+                        $rows = $target.find('tbody tr');
+                        
+					if(search == '') {
+						$rows.show(); 
+					} else {
+						$rows.each(function(){
+							var $this = $(this);
+							$this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+						})
+						if($target.find('tbody tr:visible').size() === 0) {
+							var col_count = $target.find('tr').first().find('td').size();
+							var no_results = $('<tr class="filterTable_no_results"><td colspan="'+col_count+'">No results found</td></tr>')
+							$target.find('tbody').append(no_results);
+						}
+					}
+				});
+			});
+		}
+	});
+	$('[data-action="filter"]').filterTable();
+})(jQuery);
+
+$(function(){
+    // attach table filter plugin to inputs
+	$('[data-action="filter"]').filterTable();
+	
+	$('.container').on('click', '.panel-heading span.filter', function(e){
+		var $this = $(this), 
+			$panel = $this.parents('.panel');
+		
+		$panel.find('.panel-body').slideToggle();
+		if($this.css('display') != 'none') {
+			$panel.find('.panel-body input').focus();
+		}
+	});
+	$('[data-toggle="tooltip"]').tooltip();
+}) */
+
+
+</script>
+
 <jsp:include page="header.jsp"></jsp:include>
 
-<table cellspacing="2" align="center" >
-<tr bgcolor="gray">
-	<td>Product Name</td>
-	<td>Price</td>
-	<td>Category</td>
-	<td>Stock</td>
-	<td>Photo</td>
-</tr>
-<c:forEach items="${productList}" var="product">
-	<tr bgcolor="cyan">
-		<td>${product.productName}</td>
-		<td>${product.price}</td>
-		<td>${product.catName}</td>
-		<td>${product.stock}</td>
-		<td>
-			<a href="productDetails/${product.productId}">
-			<img src="<c:url value="resources/images/${product.productId}.jpg"/>" width="150px" height="150px">
-			</a>
-		</td>
-	</tr>
-</c:forEach>
+<br>
+<br>
 
-</table>
-</body>
+<body>
+<div class="container">    
+			<div class="col-lg-12">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h2 class="panel-title">PRODUCT DETAILS</h2>
+						<!-- <div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-filter"></i>
+							</span>
+						</div> -->
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />
+					</div>
+					<table class="table table-hover" id="task-table">
+						<thead>
+							<tr>
+								<td><b>Product Name</b></td>
+								<td><b>Price</b></td>
+								<td><b>Category</b></td>
+								<td><b>Stock</b></td>
+								<td><b>Photo</b></td>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${productList}" var="product">
+							<!-- <tr bgcolor="cyan"> -->
+							<td>${product.productName}</td>
+							<td>${product.price}</td>
+							<td>${product.catName}</td>
+							<td>${product.stock}</td>
+							<td>
+							<a href="productDetails/${product.productId}">
+							<img src="<c:url value="resources/images/${product.productId}.jpg"/>" width="50px" height="50px">
+							</a>
+							</td>
+							</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</body>
 </html>
+	

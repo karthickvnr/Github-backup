@@ -38,7 +38,7 @@
 
 <script type="text/javascript">
 
-(function(){
+/* (function(){
     'use strict';
 	var $ = jQuery;
 	$.fn.extend({
@@ -86,7 +86,9 @@ $(function(){
 		}
 	});
 	$('[data-toggle="tooltip"]').tooltip();
-})
+}) */
+
+
 </script>
 
 <jsp:include page="UserHeader.jsp"></jsp:include>
@@ -100,11 +102,11 @@ Welcome : ${sessionScope.username}
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<h2 class="panel-title">PRODUCT DETAILS</h2>
-						<div class="pull-right">
+						<!-- <div class="pull-right">
 							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
 								<i class="glyphicon glyphicon-filter"></i>
 							</span>
-						</div>
+						</div> -->
 					</div>
 					<div class="panel-body">
 						<input type="text" class="form-control" id="task-table-filter" data-action="filter" data-filters="#task-table" placeholder="Filter Tasks" />

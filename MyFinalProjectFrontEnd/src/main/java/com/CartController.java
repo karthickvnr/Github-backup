@@ -154,6 +154,7 @@ public class CartController {
 		return mv;
 	}	
 	
+	
 	@RequestMapping(value="/addToCart", method=RequestMethod.POST)
 	public ModelAndView addToCart(HttpServletRequest req)
 	{
