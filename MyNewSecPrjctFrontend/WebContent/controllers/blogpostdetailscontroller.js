@@ -73,10 +73,11 @@ $scope.updateLikes=function(){
 	BlogService.updateLikes($scope.blogPost).then(function(response){
 	$scope.blogPost=response.data;
 	$scope.liked=!$scope.liked;	
-	},function(response){})
+	},function(response){
 	if(response.status==401){
 		$location.path('/login')
 	}
+	})
 }
 
 $scope.addComment=function(){
@@ -85,7 +86,7 @@ $scope.addComment=function(){
 	}
 	else	
 	BlogService.addComment($scope.commentText,id).then (function(response){
-	alert(response.status)	
+	alert('Added Successfully')	
 	$scope.commentText=''
 	$scope.blogPost=response.data
 	},function(response){

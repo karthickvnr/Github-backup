@@ -1,0 +1,20 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td><b>Firstname</b></td>
+			<td><b>Lastname</b></td>
+			<td><b>Profile Pic</b></td>
+			<td><b>Action</b></td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="user in suggestedusers">
+			<td><a>{{user.firstname}}</a></td>
+			<td>{{user.lastname}}</td>
+			<td><img src="http://localhost:8085/MyNewSecPrjctMiddleware/getimage/{{user.username}}" alt="Image Not Available" height="60" width="60"></td>
+			<td><a href="" ng-click="addFriendRequest(user.username)" class="btn btn-primary">Send Friend Request</a></td>
+			
+		</tr>
+	</tbody>
+</table>

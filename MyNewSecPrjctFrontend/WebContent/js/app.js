@@ -58,7 +58,33 @@ app.config(function($routeProvider)
 		controller : 'BlogPostDetailsController'
 	})	
 	
-	.otherwise({templateUrl:'views/home.html'})
+	.when('/home',
+	{
+		templateUrl : 'views/home.html',
+		controller : 'HomeController'
+	})	
+	
+	.when('/uploadpic',{
+		templateUrl : 'views/profilepicture.html'
+	})
+	
+	.when('/suggestedusers',{
+		templateUrl : 'views/suggestedusers.html',
+		controller : 'FriendController'
+	})
+	
+	.when('/pendingrequests',{
+		templateUrl : 'views/pendingrequests.html',
+		controller : 'FriendController'
+	})
+	
+	.when('/friends',{
+		templateUrl : 'views/friendslist.html',
+		controller : 'FriendController'
+	})
+	
+	
+	.otherwise({templateUrl:'views/home.html',controller:'HomeController'})
 })
 
 app.run(function($rootScope,$cookieStore,UserService,$location)
