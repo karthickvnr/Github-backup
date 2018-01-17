@@ -83,6 +83,11 @@ app.config(function($routeProvider)
 		controller : 'FriendController'
 	})
 	
+	.when('/chat',{
+		templateUrl:'views/chat.html',
+		controller:'ChatCtrl'
+	})
+	
 	
 	.otherwise({templateUrl:'views/home.html',controller:'HomeController'})
 })

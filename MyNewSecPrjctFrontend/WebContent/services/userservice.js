@@ -3,7 +3,7 @@
  */
 app.factory('UserService',function($http)
 {
-	var BASE_URL="http://localhost:8085/MyNewSecPrjctMiddleware"
+	var BASE_URL="http://localhost:8082/MyNewSecPrjctMiddleware"
 	var userService={}
 	userService.registerUser=function(user)
 	{

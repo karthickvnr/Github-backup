@@ -3,7 +3,7 @@
  */
 app.factory('FriendService',function($http){
 	var friendService={}
-	var BASE_URL="http://localhost:8085/MyNewSecPrjctMiddleware"
+	var BASE_URL="http://localhost:8082/MyNewSecPrjctMiddleware"
 	friendService.getAllSuggestedUsers=function(){
 		return $http.get(BASE_URL +"/suggestedusers")		
 	}

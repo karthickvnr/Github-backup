@@ -1,41 +1,101 @@
 package com.oracle.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+
+import org.apache.commons.logging.LogFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.messaging.handler.annotation.DestinationVariable;
+
+import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
+
 import org.springframework.messaging.handler.annotation.MessageMapping;
+
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+
+import org.springframework.messaging.simp.annotation.SendToUser;
+
+//import org.springframework.messaging.simp.annotation.SubscribeEvent;
+
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
+
+import org.springframework.scheduling.annotation.Scheduled;
+
 import org.springframework.stereotype.Controller;
+
+import com.oracle.dao.UserDao;
 
 import com.oracle.model.Chat;
 
+
 @Controller
 public class SockController {
-	//  to send data to the client
-	@Autowired
-private SimpMessagingTemplate messagingTemplate;
-	// list of username's who has joined the chat room
-private List<String> users = new ArrayList<String>();
-@SubscribeMapping("/join/{username}")
-public List<String> join(@DestinationVariable String username){
-	if(!users.contains(username))
-		users.add(username);
-	messagingTemplate.convertAndSend("/topic/join",username);
-	return users; // newly joined user
-}
 
-@MessageMapping(value="/chat")
-public void chatMessage(Chat chat){ //to,from,message
-	// group chat
-	if(chat.getTo().equals("all")){
-	messagingTemplate.convertAndSend("/queue/chats",chat);		
+	private static final Log logger = LogFactory.getLog(SockController.class);
+
+	private final SimpMessagingTemplate messagingTemplate;
+
+	private List<String> users = new ArrayList<String>();
+
+
+	@Autowired
+
+	public SockController(SimpMessagingTemplate messagingTemplate) {
+
+		this.messagingTemplate = messagingTemplate;
+
 	}
-	else{
-		messagingTemplate.convertAndSend("/queue/chats/"+chat.getTo(),chat);
-		messagingTemplate.convertAndSend("/queue/chats/"+chat.getFrom(),chat);
+
+	@SubscribeMapping("/join/{username}")
+
+	public List<String> join(@DestinationVariable("username") String username) {
+        
+
+		 System.out.println("username in sockcontroller" + username);
+		 
+		 if(!users.contains(username)) {
+				users.add(username);
+			}
+
+
+		System.out.println("====JOIN==== " + username);
+
+		// notify all subscribers of new user
+
+		messagingTemplate.convertAndSend("/topic/join", username);
+
+		return users;
+
 	}
-}
+
+	@MessageMapping(value = "/chat")
+
+	public void chatReveived(Chat chat) {
+
+
+		if ("all".equals(chat.getTo())) {
+
+			System.out.println("IN CHAT REVEIVED " + chat.getMessage() + " " + chat.getFrom() + " to " + chat.getTo());
+
+			messagingTemplate.convertAndSend("/queue/chats", chat);
+
+		}
+
+		else {
+
+			System.out.println("CHAT TO " + chat.getTo() + " From " + chat.getFrom() + " Message " + chat.getMessage());
+
+			messagingTemplate.convertAndSend("/queue/chats/" + chat.getTo(), chat);
+
+			messagingTemplate.convertAndSend("/queue/chats/" + chat.getFrom(), chat);
+
+		}
+
+	}
+
 }
