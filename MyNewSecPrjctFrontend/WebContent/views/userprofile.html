@@ -109,11 +109,24 @@ Select Role:
 						</div>
 						
 						<div class="radiobutton">
-      					<label><input type = "radio" value = "STUDENT" ng-model = "user.role"><span>Student</span></label><br>
+      					<!-- <label><input type = "radio" value = "STUDENT" ng-model = "user.role"><span>Student</span></label><br>
       					<label><input type = "radio" value = "EMPLOYEE" ng-model = "user.role"><span>Employee</span></label><br>
-      					<label><input type = "radio" value = "ALUMINI" ng-model = "user.role"><span>Alumini</span></label><br>
-    					</div>
+      					<label><input type = "radio" value = "ALUMINI" ng-model = "user.role"><span>Alumini</span></label><br> -->
+      					
+      					<label class="radio-inline">
+      					<input type="radio" name="optradio" value = "STUDENT" ng-model = "user.role">Student
+    					</label>
     					
+    					<label class="radio-inline">
+      					<input type="radio" name="optradio" value = "EMPLOYEE" ng-model = "user.role">Employee
+    					</label>
+    					
+    					<label class="radio-inline">
+      					<input type="radio" name="optradio" value = "ALUMINI" ng-model = "user.role">Alumini
+   						</label>  					
+      					
+    					</div>
+    					<br>
     					<!-- <input type="submit" value="Edit" ng-click="editUserProfile()"> -->
     					<input type="submit" value="Edit" class="btn btn-primary btn-lg btn-block login-button" ng-click="editUserProfile()">
     					

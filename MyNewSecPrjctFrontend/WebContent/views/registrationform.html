@@ -1,7 +1,9 @@
 <!-- <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 <form>
 <pre>
-Enter Username : <input type="text" ng-model = "user.username">
+Enter Username : <input type="text" ng-model = "user.username" name="name" required ng-minlength="5">
+<span ng-show="myform.name.$touched && myform.uname.$error.required">Username is required</span>
+<span ng-show="myform.name.$touched && myform.uname.$error.minlength">Username must be atleast 5 characters</span>
 <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
 Enter Password : <input type="password" ng-model = "user.password">
 Enter Firstname : <input type="text" ng-model = "user.firstname">
@@ -15,8 +17,7 @@ Select Role :
 <input type = "radio" value = "ALUMINI" ng-model = "user.role">Alumini
 <input type = "submit" value = "Register" ng-click = "registerUser()">
 </pre>
-</form>
- -->
+</form> -->
 
 
 
@@ -26,21 +27,21 @@ Select Role :
   <meta charset="UTF-8">
   <title>Login Form</title>  
   <link rel="stylesheet" href="css/registerstyle.css"> 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">  
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">    
 </head>
 
 <body>
 
 <div class="container">
   <div class="row">
-  <form action="" class="col-xs-12 col-sm-12 col-md-12">
-  <h2>Signup Page</h2>
-  
   <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+  <form class="col-xs-12 col-sm-12 col-md-12" name="myform" novalidate>
+  <h2>Signup Page</h2>  
   
   <div class="form-group">
-      <input type="text" class="form-control" ng-model = "user.username" placeholder="Enter UserName *" name="name" required>
+      <input type="text" class="form-control" ng-model = "user.username" placeholder="Enter UserName *" name="name" required ng-minlength="5">
+      <span ng-show="myform.name.$touched && myform.name.$error.required">Username is required</span>
+	  <span ng-show="myform.name.$touched && myform.name.$error.minlength">Username must be atleast 5 characters</span>
       <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
     </div>
     
@@ -50,31 +51,47 @@ Select Role :
    
    <div class="form-group">
       <input type="text" class="form-control" ng-model = "user.firstname" placeholder="Enter First Name *" name="firstName" required>
+      <span ng-show="myform.firstName.$touched && myform.firstName.$error.required">First Name is required</span>
     </div>
 	
 	<div class="form-group">
       <input type="text" class="form-control" ng-model = "user.lastname" placeholder="Enter Last Name *" name="lastName" required>
+      <span ng-show="myform.lastName.$touched && myform.lastName.$error.required">Last Name is required</span>
     </div>
 	
     	<div class="form-group">
       <input type="email" class="form-control" ng-model = "user.email" placeholder="Enter email *" name="email" required>
+      <span ng-show="myform.email.$dirty && myform.email.$error.required">Email is required</span>
+      <span ng-show="myform.email.$dirty && myform.email.$error.email">Email Address is not in valid format</span>
       <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
     </div>
     
     <div class="form-group">
+    <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
       <input type="text" class="form-control" ng-model = "user.phonenumber" placeholder="Enter phone number *" name="phonenumber" required>      
     </div>	
    
-    <div class="radiobutton">
-      <label><input type = "radio" value = "STUDENT" ng-model = "user.role"><span>Student</span></label><br>
-      <label><input type = "radio" value = "EMPLOYEE" ng-model = "user.role"><span>Employee</span></label><br>
-      <label><input type = "radio" value = "ALUMINI" ng-model = "user.role"><span>Alumini</span></label><br>
+    <div class="radiobutton">      
+      
+      <label class="radio-inline">
+      <input type="radio" name="optradio" value = "STUDENT" ng-model = "user.role"><span>Student</span>
+      </label>
+    					
+     <label class="radio-inline">
+     <input type="radio" name="optradio" value = "EMPLOYEE" ng-model = "user.role"><span>Employee</span>
+     </label>
+    					
+     <label class="radio-inline">
+     <input type="radio" name="optradio" value = "ALUMINI" ng-model = "user.role"><span>Alumini</span>
+   	 </label>  
+      <br>
     </div>
     
-    <button type="submit" class="btn btn-success" ng-click = "registerUser()">Submit<i class="glyphicon glyphicon-send"></i></button>  
+    <button type="submit" class="btn btn-success" ng-click = "registerUser()" ng-disabled="myform.$invalid">Submit<i class="glyphicon glyphicon-send"></i></button>
       
     
   </form>
+  
   </div>
 </div>
 
