@@ -1,4 +1,4 @@
-<div ng-show="currentUser.role=='ADMIN'">
+<!-- <div ng-show="currentUser.role=='ADMIN'">
 	<h3>List of Blogs Waiting For Approval</h3>
 	<div ng-if="blogsWaitingForApproval.length==0">No blogposts available</div>
 	<table ng-show="blogsWaitingForApproval.length>0" class="table table-striped">
@@ -38,3 +38,118 @@
 		</tbody>
 	</table>
 </div>
+ -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+.site-heading h3{
+    font-size : 40px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.border {
+    background: #d1360e;
+    height: 2px;
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+/* Blog-CSS */
+.blog-box {
+    padding: 30px;
+    transition: .5s;
+ /*   border: 5px solid #e2e2e2;*/
+    margin: 30px;
+        box-shadow: 5px 6px 10px 1px grey;
+}
+}
+.blog-box-content h4 a {
+    font-size: 20px;
+    padding: 0px 0 0px;
+    text-transform: uppercase;
+    color:#2b2b2b;
+     text-decoration:none;
+    
+}
+.blog-box-content h4:hover {
+    color:#000;
+     text-decoration:none;
+    
+}
+
+.blog-box-content {
+padding: 0 20px 20px;
+}
+.blog-box-text h4 a {
+    color: #333;
+}
+
+
+</style>
+</head>
+<body>
+
+<div ng-show="currentUser.role=='ADMIN'">
+<div class="blog-section paddingTB60">
+<div class="container">
+	<div class="row">
+		<div class="site-heading text-center">
+				<h3>List of Blogs Waiting For Approval</h3>	
+				<div ng-if="blogsWaitingForApproval.length==0">No blogposts available</div>					
+				<div class="border"></div>
+		</div>
+	</div>
+	
+	<div class="row text-center">
+	       <div class="col-sm-12 col-md-12 blog-box">	
+				<div class="blog-box-content" style="float: left !important;width:20% !important;" ng-show="blogsWaitingForApproval.length>0" ng-repeat="blogPost in blogsWaitingForApproval">		
+						
+				<img src="http://localhost:8082/MyNewSecPrjctMiddleware/getimage/{{blogPost.postedBy.username}}" class="img-responsive" alt="Image Not Available">								
+				<h3><a href="#/admin/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></h3>
+				<h4>{{blogPost.postedBy.firstname}} &nbsp; {{blogPost.postedBy.lasname}}</h4>
+				<p>{{blogPost.postedOn | date:'yyyy:MM:dd'}}</p>	
+							
+				</div>
+				</div>
+			</div> <!-- End Col -->	
+    </div>   
+    
+    
+    
+    
+ <div class="container">
+	<div class="row">
+		<div class="site-heading text-center">
+				<h3>List of Blogs Approved</h3>	
+				<div ng-if="blogsApproved.length==0">No Approved blogposts available</div>					
+				<div class="border"></div>
+		</div>
+	</div>
+	
+	<div class="row text-center">
+	       <div class="col-sm-12 col-md-12 blog-box">	
+				<div class="blog-box-content" style="float: left !important;width:20% !important;" ng-show="blogsApproved.length>0" ng-repeat="blogPost in blogsApproved">		
+						
+				<img src="http://localhost:8082/MyNewSecPrjctMiddleware/getimage/{{blogPost.postedBy.username}}" class="img-responsive" alt="Image Not Available">								
+				<h3><a href="#/getblog/{{blogPost.id}}">{{blogPost.blogTitle}}</a></h3>
+				<h4>{{blogPost.postedBy.username}}</h4>
+				<p>{{blogPost.postedOn | date:'yyyy:MM:dd'}}</p>	
+							
+				</div>
+				</div>
+			</div> <!-- End Col -->	
+    </div>   
+    
+</div>
+</div>
+</body>
+</html>

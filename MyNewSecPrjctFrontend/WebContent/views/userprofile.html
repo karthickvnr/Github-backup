@@ -1,4 +1,4 @@
-<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+<!-- <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 <form>
 <pre>
 Enter Username : <input type="text" ng-model="user.username" disabled>
@@ -15,4 +15,120 @@ Select Role:
 <input type="radio" value="ALUMNI" ng-model="user.role">Alumni
 <input type="submit" value="Edit" ng-click="editUserProfile()">
 </pre>
-</form>
+</form> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Update User</title>  
+  <link rel="stylesheet" href="css/updateuserstyle.css"> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">       
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Website CSS style -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>		
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h3><center>Update Details</center></h3>
+					<!-- <form class="" method="post" action="#"> -->
+					
+					<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+						
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Enter Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" ng-model="user.username" disabled placeholder="Enter your Name"/>
+									<span style="color:red" ng-if="error.code==2">{{error.message}}</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" ng-model="user.password"  placeholder="Enter your Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="firstname" class="cols-sm-2 control-label">Firstname</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="firstname" ng-model="user.firstname"  placeholder="Enter your Firstname"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="lastname" class="cols-sm-2 control-label">Lastname</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa-lg" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="lastname" ng-model="user.lastname"  placeholder="Enter your Lastname"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></span>
+									<input type="email" class="form-control" name="email" ng-model="user.email"  placeholder="Enter your Email"/>
+									<span style="color:red" ng-if="error.code==3">{{error.message}}</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="phonenumber" class="cols-sm-2 control-label">Phonenumber</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-phone-square fa-lg" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="phonenumber" ng-model="user.phonenumber"  placeholder="Enter your Phonenumber"/>
+								</div>
+							</div>
+						</div>
+						
+						<div class="radiobutton">
+      					<label><input type = "radio" value = "STUDENT" ng-model = "user.role"><span>Student</span></label><br>
+      					<label><input type = "radio" value = "EMPLOYEE" ng-model = "user.role"><span>Employee</span></label><br>
+      					<label><input type = "radio" value = "ALUMINI" ng-model = "user.role"><span>Alumini</span></label><br>
+    					</div>
+    					
+    					<!-- <input type="submit" value="Edit" ng-click="editUserProfile()"> -->
+    					<input type="submit" value="Edit" class="btn btn-primary btn-lg btn-block login-button" ng-click="editUserProfile()">
+    					
+    					<!-- <div class="form-group ">
+							<input type="submit" id="Edit" class="btn btn-primary btn-lg btn-block login-button" ng-click="editUserProfile()">
+						</div>	 -->
+						
+					</form>
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
